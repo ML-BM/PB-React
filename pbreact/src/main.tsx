@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home.tsx'
-import SignIn from './pages/SignIn.tsx'
-import SignUp from './pages/SignUp.tsx'
-import Search from './pages/Search.tsx'
-import Explore from './pages/Explore.tsx'
-import ProductOverview from './pages/ProductOverview.tsx'
-import ProductSpecific from './pages/ProductSpecific.tsx'
-import Cart from './pages/Cart.tsx'
+import Home from './pages/home/Home'
+import SignIn from './pages/auth/SignIn'
+import SignUp from './pages/auth/SignUp'
+import Search from './pages/search/Search'
+import Explore from './pages/explore/Explore'
+import ProductOverview from './pages/product/ProductOverview'
+import ProductSpecific from './pages/product/ProductSpecific'
+import Cart from './pages/cart/Cart'
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

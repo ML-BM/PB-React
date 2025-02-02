@@ -13,5 +13,7 @@
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist"
   },
-  "include": ["src/**/*", "vite.config.ts"],
+  "include": [
+    "vite.config.ts"
+  ],
 }
