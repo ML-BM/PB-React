@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
+@layer reset, base, layout, components;
+
+@layer reset {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html,
+    body {
+        width: 100%;
+    }
+}
+
+@layer base {
+    :root {
+        /* Colors */
+        --colors-primary: #0acf83;
+        --colors-default: #000000;
+        --colors-grey-dark-1: #7f7f7f;
+        --colors-grey: #bababa;
+        --colors-grey-light-1: #f6f6f6;
+        --colors-grey-light-2: #f3f3f3;
+        --colors-white: #ffffff;
+        --colors-accent: #ffc120;
+
+        /* Fonts */
+        /* Effects */
+        --effect-shadow-box-shadow: 0px 4px 30px 0px rgba(104, 117, 130, 0.05);
+    }
+}
+
+@layer components {
+    .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        min-width: 100%;
+        overflow-x: hidden;
+        font-family: 'DM Sans', sans-serif;
+        color: var(--colors-default);
+    }
+
+    .headerIcon {
+        padding-left: 5px;
+    }
+
+    #icons {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 12px;
+        padding-top: 12px;
+    }
+
+    .wifiIconDarker {
+        width: 20px;
+        height: 12px;
+    }
+
+    #time {
+        padding-left: 24px;
+        padding-top: 12px;
+        text-align: left;
+        font-weight: bold;
+    }
+    .secHeader {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin: 50px auto 0 auto;
+        max-width: 326px;
+        overflow-x: hidden;
+        font-family: 'DM Sans', sans-serif;
+        color: var(--colors-default);
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-bottom: 30px;
+    }
+
+    .btnMainfilter{
+        background: var(--colors-white, #ffffff);
+        border-radius: 10px;
+        border-style: solid;
+        border-color: var(--colors-grey, #bababa);
+        border-width: 1px;
+        display: flex;
+        flex-direction: row;
+        padding: 10px 15px 10px 15px;
+        gap: 8px;
+        align-items: center;
+        justify-content: center;
+        width: 327px;
+        height: 41px;
+        margin-left: 25px;
+    }
+    .mainButton {
+        background: var(--colors-primary, #0acf83);
+        border-radius: 10px;
+        padding: 20px 10px 20px 10px;
+        gap: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        height: 50px;
+        min-width: 326px;
+        border: none;
+
+        /* mainButton text */
+        color: var(--colors-white);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20px;
+        letter-spacing: 0.20000000298023224px;
+    }
+    .popup {
+        position: fixed;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: var(--colors-grey-light-1);
+        padding: 20px;
+        border-radius: 30px;
+        box-shadow: var(--effect-shadow-box-shadow);
+        z-index: 1000;
+        text-align: start;
+        color: var(--colors-default);
+        cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+    }
+
+    .popup-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: relative;
+    }
+
+    .filterButtons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+
+    .filterButtons button {
+        background: var(--colors-white, #ffffff);
+        border-radius: 10px;
+        border-style: solid;
+        border-color: var(--colors-grey-dark-1, #7f7f7f);
+        border-width: 1px;
+        padding: 20px 15px 20px 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        height: 39px;
+        position: relative;
+    }
+
+    .filterButtons button.activeButton {
+        background: var(--colors-primary, #0acf83);
+        border-radius: 10px;
+        padding: 20px 15px 20px 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        height: 39px;
+        position: relative;
+        color: var(--colors-white);
+        border: none;
+    }
+
+    p{
+        color: var(--colors-default, #000000);
+        text-align: left;
+        font-family: "DM Sans", sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: relative;
+    }
+
+    .span{
+        height: 20px;
+    }
+
+    .popupHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .closeButton {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: var(--colors-default, #000000);
+    }
+
+    h2{
+        color: var(--colors-default);
+        text-align: left;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 24px;
+        line-height: 32px;
+        letter-spacing: 0.2px;
+        font-weight: 700;
+        position: relative;
+        align-self: stretch;
+        margin-left: 25px;
+        margin-bottom: 20px;
+    }
+    ul .searchProductsReview{
+        color: var (--colors-default);
+        display: flex;
+        flex-direction: row;
+        padding: 5px;
+    }
+
+    .searchProductsReview img {
+        width: 16px;
+        height: 16px;
+    }
+
+}
+

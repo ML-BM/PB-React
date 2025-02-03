@@ -115,6 +115,8 @@
         letter-spacing: 0.2px;
         font-weight: 700;
         position: relative;
+        margin-left: 25px;
+        text-decoration: none;
     }
 
     .searchText {
@@ -283,5 +285,8 @@
         justify-content: center;
         height: 70px;
         width: 70px;
+    }
+    .arrowIcon {
+        margin-left: 10px;
     }
 }

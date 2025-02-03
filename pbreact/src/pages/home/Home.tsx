@@ -127,7 +127,15 @@ const Home: React.FC = () => {
                                     <div className={styles.productGrid}>
                                         <div className={styles.productInfo}>
                                             <h2>{randomHeadphone.name}</h2>
-                                            <a href="#" onClick={handleShopNow}>Shop Now</a>
+                                            <a href="#" onClick={handleShopNow}>
+                                                Shop Now
+                                                <svg className={styles.arrowIcon} width="16" height="16"
+                                                     viewBox="0 0 24 24" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor"
+                                                          strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                                </svg>
+                                            </a>
                                         </div>
                                         <div>
                                             <img src={randomHeadphone.img} alt={randomHeadphone.name} width="100"

@@ -270,6 +270,7 @@
         width: 326px; /* Define uma largura fixa */
         max-height: 75px;
         padding-left: 10px; /* Adiciona um padding à esquerda */
+        padding-bottom: 10px;
     }
 
     ul li div {

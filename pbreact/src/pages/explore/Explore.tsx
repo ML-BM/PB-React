@@ -4,6 +4,17 @@ import { ref, onValue } from 'firebase/database';
 import { db } from '../../../firebaseConfig';
 import { useLocation, useNavigate } from 'react-router-dom';
 import BackButton from '../../components/BackButton';
+import styles from './Explore.module.css';
+import signalIcon from '../../assets/signal-icon-dark.png';
+import wifiIconDarker from '../../assets/wifi-icon-dark.png';
+import batteryIcon from '../../assets/battery-icon-dark.png';
+import avatar from '../../assets/avatar.png';
+import logo from '../../assets/logo.png';
+import menu from '../../assets/menu-variant.png';
+import search from '../../assets/search.png';
+import cart from '../../assets/cart.png';
+import filter from '../../assets/sliders.png';
+import starIcon from '../../assets/star-icon.png';
 
 const Explore: React.FC = () => {
     const [products, setProducts] = useState<any[]>([]);
@@ -54,41 +65,86 @@ const Explore: React.FC = () => {
     };
 
     return (
-        <div>
-            <BackButton />
-            <h1>Explore Products</h1>
-            <button onClick={() => setShowPopup(true)}>Filter</button>
-            {showPopup && (
-                <div className="popup">
-                    <div className="popup-content">
-                        <h2>Filter Options</h2>
-                        <select onChange={(e) => setTempCategory(e.target.value)} value={tempCategory}>
-                            <option value="">All Categories</option>
-                            <option value="headsets">Headsets</option>
-                            <option value="headphones">Headphones</option>
-                        </select>
-                        <select onChange={(e) => setTempSortBy(e.target.value)} value={tempSortBy}>
-                            <option value="">Sort by</option>
-                            <option value="Popularity">Popularity</option>
-                            <option value="Newest">Newest</option>
-                            <option value="Oldest">Oldest</option>
-                            <option value="High Price">High Price</option>
-                            <option value="Low Price">Low Price</option>
-                        </select>
-                        <button onClick={handleApplyFilters}>Apply filters</button>
-                    </div>
+        <section>
+            <header className={styles.header}>
+                <div id={styles.time}>
+                    9:41
                 </div>
-            )}
-            <ul>
-                {filteredProducts.map((product) => (
-                    <li key={product.id} onClick={() => handleProductClick(product.id)}>
-                        <img src={product.img} alt={product.name} width="50" height="50" />
-                        {product.name} - ${product.price} - Rating: {(product.reviews.reduce((acc, review) => acc + review.rating, 0) / product.reviews.length).toFixed(1)}
-                    </li>
-                ))}
-            </ul>
-            <button onClick={() => navigate('/cart')}>Cart</button>
-        </div>
+                <div id={styles.icons}>
+                    <img src={signalIcon} alt="Signal" className={styles.headerIcon}/>
+                    <img src={wifiIconDarker} alt="WiFi" className={`${styles.headerIcon} ${styles.wifiIconDarker}`}/>
+                    <img src={batteryIcon} alt="Battery" className={styles.headerIcon}/>
+                </div>
+            </header>
+            <div className={styles.secHeader}>
+                <BackButton/>
+                <img src={cart} alt="Cart" onClick={() => navigate('/cart')}/>
+            </div>
+            <div>
+                <h2>All Products</h2>
+                <button className={styles.btnMainfilter} onClick={() => setShowPopup(true)}>
+                    <div><img src={filter} alt="Filter" className={styles.headerIcon}/>
+                    </div>
+                    <div>Filter</div>
+                </button>
+                {showPopup && (
+                    <div className={styles.popup}>
+                        <div className={styles.popupContent}>
+                            <div className={styles.popupHeader}>
+                                <h2>Filter</h2>
+                                <button className={styles.closeButton} onClick={() => setShowPopup(false)}>x</button>
+                            </div>
+                            <div className={styles.span}></div>
+                            <p>Category</p>
+                            <div className={styles.filterButtons}>
+                                <button onClick={() => setTempCategory('headsets')}
+                                        className={tempCategory === 'headsets' ? styles.activeButton : ''}>Headsets
+                                </button>
+                                <button onClick={() => setTempCategory('headphones')}
+                                        className={tempCategory === 'headphones' ? styles.activeButton : ''}>Headphones
+                                </button>
+                            </div>
+                            <p>Sort by</p>
+                            <div className={styles.filterButtons}>
+                                <button onClick={() => setTempSortBy('Popularity')}
+                                        className={tempSortBy === 'Popularity' ? styles.activeButton : ''}>Popularity
+                                </button>
+                                <button onClick={() => setTempSortBy('Newest')}
+                                        className={tempSortBy === 'Newest' ? styles.activeButton : ''}>Newest
+                                </button>
+                                <button onClick={() => setTempSortBy('Oldest')}
+                                        className={tempSortBy === 'Oldest' ? styles.activeButton : ''}>Oldest
+                                </button>
+                                <button onClick={() => setTempSortBy('High Price')}
+                                        className={tempSortBy === 'High Price' ? styles.activeButton : ''}>High Price
+                                </button>
+                                <button onClick={() => setTempSortBy('Low Price')}
+                                        className={tempSortBy === 'Low Price' ? styles.activeButton : ''}>Low Price
+                                </button>
+                            </div>
+                            <button className={styles.mainButton} onClick={handleApplyFilters}>Apply Filter</button>
+                        </div>
+                    </div>
+                )}
+                <ul>
+                    {filteredProducts.map((product) => (
+                        <li key={product.id} onClick={() => handleProductClick(product.id)}>
+                            <img src={product.img} alt={product.name} width="50" height="50"/>
+                            <div className={styles.searchProducts}>
+                                <div className={styles.direction}>
+                                    {product.name} - ${product.price}
+                                </div>
+                                <div className={styles.searchProductsReview}>
+                                    <img src={starIcon} alt="Star" width="16" height="16"/>
+                                    <div>{(product.reviews.reduce((acc, review) => acc + review.rating, 0) / product.reviews.length).toFixed(1)}</div>
+                                    <div>{product.reviews.length} reviews</div>
+                                </div>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </section>
     );
 };
 
