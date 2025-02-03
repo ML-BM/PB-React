@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
+@layer reset, base, theme, layout, components;
+
+@layer reset {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html,
+    body {
+        width: 100%;
+        overflow-x: hidden;
+        font-family: 'DM Sans', sans-serif;
+    }
+}
+
+@layer base {
+    :root {
+        /* Colors */
+        --colors-primary: #0acf83;
+        --colors-default: #000000;
+        --colors-grey-dark-1: #7f7f7f;
+        --colors-grey: #bababa;
+        --colors-grey-light-1: #f6f6f6;
+        --colors-grey-light-2: #f3f3f3;
+        --colors-white: #ffffff;
+        --colors-accent: #ffc120;
+
+        /* Fonts */
+        /* Effects */
+        --effect-shadow-box-shadow: 0px 4px 30px 0px rgba(104, 117, 130, 0.05);
+    }
+}
+
+@layer layout {
+
+}
+
+@layer components {
+    .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        min-width: 100%;
+    }
+
+    .header-icon {
+        margin-left: 5px;
+    }
+
+    #icons {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 12px;
+        padding-top: 12px;
+    }
+
+    #time {
+        color: var(--colors-default);
+        padding-left: 24px;
+        padding-top: 12px;
+        text-align: left;
+    }
+
+    .mainButton {
+        background: var(--colors-primary, #0acf83);
+        border-radius: 10px;
+        padding: 20px 10px 20px 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        height: 50px;
+        position: relative;
+        min-width: 326px;
+        border: none;
+
+        /* mainButton text */
+        color: var(--colors-white);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20px;
+        letter-spacing: 0.20000000298023224px;
+    }
+
+    .inputContainer {
+        position: relative;
+        display: flex;
+        align-items: center;
+        min-width: 326px;
+
+    }
+
+    .inputIcon {
+        position: absolute;
+        left: 10px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .inputText {
+        padding-left: 40px; /* Adjust padding to make space for the icon */
+        background: var(--colors-white, #ffffff);
+        border-radius: 10px;
+        border-style: solid;
+        border-color: var(--colors-grey, #bababa);
+        border-width: 1px;
+        height: 50px;
+        width: 100%;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0.20000000298023224px;
+    }
+    #mainSignComponents{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .popup {
+        position: fixed;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #333; /* Darker gray */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: var(--effect-shadow-box-shadow);
+        z-index: 1000;
+        color: var(--colors-white); /* White text for contrast */
+        cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+    }
+
+    .popup-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+}

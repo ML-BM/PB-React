@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@types/cors": "^2.8.17",
+    "cors": "^2.8.5",
+    "firebase": "^11.2.0",
+    "firebase-admin": "^13.0.2"
+  }
+}

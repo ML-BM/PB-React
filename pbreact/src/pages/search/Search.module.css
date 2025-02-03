@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
+@layer reset, base, layout, components;
+
+@layer reset {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html,
+    body {
+        width: 100%;
+    }
+}
+
+@layer base {
+    :root {
+        /* Colors */
+        --colors-primary: #0acf83;
+        --colors-default: #000000;
+        --colors-grey-dark-1: #7f7f7f;
+        --colors-grey: #bababa;
+        --colors-grey-light-1: #f6f6f6;
+        --colors-grey-light-2: #f3f3f3;
+        --colors-white: #ffffff;
+        --colors-accent: #ffc120;
+
+        /* Fonts */
+        /* Effects */
+        --effect-shadow-box-shadow: 0px 4px 30px 0px rgba(104, 117, 130, 0.05);
+    }
+}
+
+@layer components {
+    .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        min-width: 100%;
+        overflow-x: hidden;
+        font-family: 'DM Sans', sans-serif;
+        color: var(--colors-default);
+    }
+
+    .headerIcon {
+        padding-left: 5px;
+    }
+
+    #icons {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 12px;
+        padding-top: 12px;
+    }
+
+    .wifiIconDarker {
+        width: 20px;
+        height: 12px;
+    }
+
+    #time {
+        padding-left: 24px;
+        padding-top: 12px;
+        text-align: left;
+        font-weight: bold;
+    }
+    .slick-track {
+        display: flex;
+        justify-content: center; /* Centers the items horizontally */
+        align-items: center; /* Centers the items vertically */
+        width: 326px; /* Set the width to 326px */
+        height: 178px;
+    }
+
+    .productGrid {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 326px; /* Set the width to 326px */
+        height: 178px;
+        margin: 20px;
+        background-color: var(--colors-white);
+    }
+
+    .homeBgcolor{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 40vh; /* Ocupa toda a altura da tela */
+        overflow: hidden; /* Garante que nenhum conteúdo transborde */
+    }
+
+    .productInfo {
+        color: var(--colors-default);
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+    }
+
+    .productInfo a{
+        color: var(--colors-primary, #0acf83);
+        text-align: left;
+        font-family: "DmSans-Bold", sans-serif;
+        font-size: 14px;
+        letter-spacing: 0.2px;
+        font-weight: 700;
+        position: relative;
+    }
+
+    .searchText {
+        padding-top: 35px;
+        padding-bottom: 25px;
+        margin: 0 auto; /* Centraliza horizontalmente */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 326px;
+    }
+
+    .searchText h3{
+        color: var(--colors-default);
+        text-align: left;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 24px;
+        line-height: 32px;
+        letter-spacing: 0.2px;
+        font-weight: 700;
+        position: relative;
+        align-self: stretch;
+    }
+
+    .searchText h5 {
+        color: var(--colors-default);
+        text-align: left;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0; /* Remove margin */
+        padding: 0; /* Remove padding */
+    }
+
+    h5{
+        color: var(--colors-default);
+        text-align: left;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-left: 10px;
+    }
+    h5 a{
+        color: var(--colors-grey-dark-1, #7f7f7f);
+        text-align: right;
+        font-family: "DmSans-Regular", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: relative;
+    }
+    .secHeader {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin: 50px auto 0 auto;
+        max-width: 326px;
+        overflow-x: hidden;
+        font-family: 'DM Sans', sans-serif;
+        color: var(--colors-default);
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-bottom: 30px;
+    }
+
+    #inputContainer {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        max-width: 326px;
+        margin: 0 auto; /* Centraliza horizontalmente */
+    }
+
+    .inputIcon {
+        position: absolute;
+        left: 10px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .inputText {
+        padding-left: 40px; /* Adjust padding to make space for the icon */
+        background: var(--colors-white, #ffffff);
+        border-radius: 10px;
+        border-style: solid;
+        border-color: var(--colors-grey, #bababa);
+        border-width: 1px;
+        height: 50px;
+        width: 100%;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0.20000000298023224px;
+    }
+
+    .mainButton, .mainButtoninative {
+        height: 40px; /* Defina uma altura fixa */
+        display: flex;
+        align-items: center; /* Centraliza verticalmente */
+        justify-content: center; /* Centraliza horizontalmente */
+        padding: 10px 20px; /* Ajuste o padding conforme necessário */
+        border-radius: 30px;
+        border: none;
+        font-size: 16px;
+        font-weight: 700;
+        margin-top: 30px;
+    }
+
+    .mainButton {
+        background-color: var(--colors-primary);
+        color: var(--colors-white);
+    }
+
+    .mainButtoninative {
+        color: var(--colors-grey-dark-1, #7f7f7f);
+        text-align: right;
+        font-family: "DmSans-Regular", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        position: relative;
+    }
+
+    ul {
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column; /* Altera para coluna */
+        list-style-type: none;
+        padding: 0;
+        gap: 0;
+    }
+
+    ul li {
+        background-color: var(--colors-white);
+        color: var(--colors-default);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;
+        width: 326px; /* Define uma largura fixa */
+        max-height: 75px;
+        padding-left: 10px; /* Adiciona um padding à esquerda */
+        padding-bottom: 10px;
+    }
+
+    ul li div {
+        text-align: left; /* Alinha o texto à esquerda */
+    }
+
+    .searchResults {
+        position: relative;
+        z-index: 2; /* Higher z-index to appear in front */
+    }
+
+    .rankingSection {
+        position: fixed;
+        bottom: 2vh;
+        width: 100%;
+        z-index: 1; /* Lower z-index to appear behind */
+    }
+
+    ul li img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 75px;
+        width: 75px;
+        background-color: var(--colors-grey-light-1);
+        border-radius: 10px;
+    }
+
+    .searchProductsReview {
+        color: var(--colors-default);
+        display: flex;
+        flex-direction: row; /* Garante que os itens fiquem lado a lado */
+        align-items: center; /* Alinha os itens verticalmente ao centro */
+        gap: 5px; /* Adiciona um espaço de 5px entre os itens */
+    }
+
+    ul .searchProducts{
+        margin-left: 20px; /* Adiciona um padding à esquerda */
+        display: flex;
+        flex-direction: column;
+    }
+
+    ul .searchProductsReview{
+        color: var (--colors-default);
+        display: flex;
+        flex-direction: row;
+        padding: 5px;
+    }
+
+    .searchProductsReview img {
+        width: 16px;
+        height: 16px;
+    }
+}
