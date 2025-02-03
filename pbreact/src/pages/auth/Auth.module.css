@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
+@layer reset, base, layout, components;
+
+@layer reset {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html,
+    body {
+        width: 100%;
+        overflow-x: hidden;
+        font-family: 'DM Sans', sans-serif;
+        color: var(--colors-white);
+        text-align: center;
+    }
+}
+
+@layer base {
+    :root {
+        /* Colors */
+        --colors-primary: #0acf83;
+        --colors-default: #000000;
+        --colors-grey-dark-1: #7f7f7f;
+        --colors-grey: #bababa;
+        --colors-grey-light-1: #f6f6f6;
+        --colors-grey-light-2: #f3f3f3;
+        --colors-white: #ffffff;
+        --colors-accent: #ffc120;
+
+        /* Fonts */
+        /* Effects */
+        --effect-shadow-box-shadow: 0px 4px 30px 0px rgba(104, 117, 130, 0.05);
+    }
+}
+
+@layer layout {
+    #mainSignComponents {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #googleSignDiv {
+        margin-top: 24px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center; /* Alinha verticalmente a imagem e o texto */
+        color: var(--colors-white);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20px;
+        letter-spacing: 0.20000000298023224px;
+        margin-bottom: 64px;
+    }
+
+    #googleSignDiv img {
+        max-width: 24px;
+        max-height: 24px;
+    }
+
+    .card {
+        position: relative;
+        z-index: 1;
+    }
+
+    #form {
+        margin-top: 140px;
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .register {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        position: absolute;
+        bottom: 40px;
+        min-width: 100%;
+    }
+
+    #signBody {
+        background: url('../../assets/image-background.png') no-repeat center center fixed;
+        background-size: cover;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        padding-top: 0;
+    }
+
+    #signBody::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(18, 80, 56, 0.8), rgba(0, 0, 0, 0.8));
+        z-index: 0;
+    }
+}
+
+@layer components {
+    .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        min-width: 100%;
+    }
+
+    .headerIcon {
+        padding-left: 5px;
+    }
+
+    #icons {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 12px;
+        padding-top: 12px;
+    }
+
+    #time {
+        padding-left: 24px;
+        padding-top: 12px;
+        text-align: left;
+    }
+
+    .mainButton {
+        background: var(--colors-primary, #0acf83);
+        border-radius: 10px;
+        padding: 20px 10px 20px 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        height: 50px;
+        position: relative;
+        min-width: 326px;
+        border: none;
+
+        /* mainButton text */
+        color: var(--colors-white);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20px;
+        letter-spacing: 0.20000000298023224px;
+    }
+
+    .inputContainer {
+        position: relative;
+        display: flex;
+        align-items: center;
+        min-width: 326px;
+    }
+
+    .inputIcon {
+        position: absolute;
+        left: 10px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .inputText {
+        padding-left: 40px; /* Adjust padding to make space for the icon */
+        background: var(--colors-white, #ffffff);
+        border-radius: 10px;
+        border-style: solid;
+        border-color: var(--colors-grey, #bababa);
+        border-width: 1px;
+        height: 50px;
+        width: 100%;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0.20000000298023224px;
+    }
+
+    .popup {
+        position: fixed;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #333; /* Darker gray */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: var(--effect-shadow-box-shadow);
+        z-index: 1000;
+        color: var(--colors-white); /* White text for contrast */
+        cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+    }
+
+    .popup-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+
+    .authControl {
+        margin-left: 7px;
+        font-weight: 700;
+        color: var(--colors-primary);
+        text-decoration: underline;
+    }
+
+    .signGoogle {
+        margin-left: 7px;
+    }
+
+    .title {
+        font-size: 51.04762268066406px;
+        font-family: 'DM Sans';
+        font-weight: 700;
+        letter-spacing: 0.6380952596664429px;
+        margin-bottom: 12px;
+    }
+
+    /* Sign In Style */
+    #resetIn {
+        padding-top: 12px;
+        padding-bottom: 32px;
+    }
+
+    /* Sign Up Style */
+    #resetUp {
+        padding-top: 12px;
+        padding-bottom: 32px;
+        visibility: hidden;
+    }
+}
+
+@media (max-width <= 375px) {
+
+}
+
+@media (max-width < 50vw) {
+
+}
+
+@media (min-width > 50vw) {
+
+}

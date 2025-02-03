@@ -7,7 +7,6 @@ import SignUp from './pages/auth/SignUp'
 import Search from './pages/search/Search'
 import Explore from './pages/explore/Explore'
 import ProductOverview from './pages/product/ProductOverview'
-import ProductSpecific from './pages/product/ProductSpecific'
 import Cart from './pages/cart/Cart'
 
 
@@ -20,7 +19,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                 <Route path="/search" element={<Search />} />
                 <Route path="/explore" element={<Explore />} />
                 <Route path="/overview" element={<ProductOverview />} />
-                <Route path="/specific" element={<ProductSpecific />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/home" element={<Home />} />
             </Routes>
